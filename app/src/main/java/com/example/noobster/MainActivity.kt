@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         linearlayoutManager = LinearLayoutManager(this)
         meme_list.layoutManager = linearlayoutManager
 
+
     }
 
     private fun getdata() {

@@ -5,7 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface NoobMemeServices {
-    @GET("/10")
+    @GET("10")
     fun getData(
 
 
