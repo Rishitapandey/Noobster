@@ -1,123 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:elevation="5dp"
-    app:cardCornerRadius="10dp">
+    android:padding="6dp"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/meme_image"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meme_image">
 
-        <ImageView
-            android:id="@+id/meme_image"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            tools:src="@mipmap/ic_launcher" />
+        <TextView
+            android:layout_width="16dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"
+            android:maxLines="1"
+            android:text="@string/title"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
-        <LinearLayout
-            android:id="@+id/ll_character_detail"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
-            android:orientation="vertical">
+        <TextView
+            android:id="@+id/meme_title"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".8"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/white" />
 
-            <TextView
-                android:id="@+id/TitleM"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="4dp"
-                android:gravity="start"
-                tools:text="Light House Keeper"
-                android:textColor="@color/colorLight"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+        <TextView
+            android:layout_width="16dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"
+            android:maxLines="1"
+            android:text="@string/author"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="12dp"
-                android:gravity="center|start"
-                android:orientation="horizontal">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cv_character_status"
-                    android:layout_width="9dp"
-                    android:layout_height="9dp"
-                    android:background="@color/red"
-                    app:cardCornerRadius="10dp" />
-
-                <TextView
-                    android:id="@+id/MemeTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-
-                    android:text="Title"
-                    android:textColor="@color/colorLight"
-                    android:textSize="10sp"
-                    tools:ignore="SmallSp" />
-
-                <View
-                    android:layout_width="6dp"
-                    android:layout_height="1dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="5dp"
-                    android:background="@color/colorLight" />
-
-                <TextView
-                    android:id="@+id/title_meme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:textColor="@color/colorLight"
-                    android:textSize="10sp"
-                    tools:ignore="SmallSp"
-                    tools:text="Title" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="12dp"
-                android:gravity="center|start"
-                android:orientation="horizontal">
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Author"
-                    android:textColor="@color/colorLight"
-                    android:textSize="10sp"
-                    tools:ignore="SmallSp" />
-
-                <View
-                    android:layout_width="6dp"
-                    android:layout_height="1dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="5dp"
-                    android:background="@color/colorLight" />
-
-                <TextView
-                    android:id="@+id/author"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:textSize="10sp"
-                    android:textColor="@color/colorLight"
-                    tools:ignore="SmallSp"
-                    tools:text="Author" />
-            </LinearLayout>
-
-        </LinearLayout>
+        <TextView
+            android:id="@+id/author"
+            android:textSize="16sp"
+            android:maxLines="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".8"
+            android:ellipsize="end"
+            android:text="@string/title"
+            android:textColor="@color/white" />
     </LinearLayout>
-</com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.noobster.adapter.MemeAdapter
+import com.example.noobster.api.NoobMemeServices
 import com.example.noobster.models.NoobMemeData
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
@@ -20,20 +22,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         getdata()
-        linearlayoutManager = LinearLayoutManager(this)
-        meme_list.layoutManager = linearlayoutManager
+        setupRecyclerView()
 
 
     }
 
-    private fun getdata() {
+    private fun setupRecyclerView() {
+        linearlayoutManager = LinearLayoutManager(this)
+        meme_list.layoutManager = linearlayoutManager
+    }
 
-        val retrofitBuilder=Retrofit.Builder()
+    private fun getdata() {
+        progress_bar_main.visibility = View.VISIBLE
+
+        val retrofitBuilder = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(Constants.BASE_URL)
             .build()
             .create(NoobMemeServices::class.java)
-        val retroData=retrofitBuilder.getData()
+        val retroData = retrofitBuilder.getData()
 
         retroData.enqueue(object : Callback<NoobMemeData?> {
             override fun onResponse(

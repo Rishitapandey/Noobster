@@ -1,5 +1,5 @@
 package com.example.noobster
 
 object Constants {
-    const val BASE_URL="https://meme-api.herokuapp.com/gimme/"
+    const val BASE_URL="https://meme-api.herokuapp.com/"
 }
